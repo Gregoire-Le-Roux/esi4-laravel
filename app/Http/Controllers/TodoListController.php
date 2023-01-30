@@ -51,7 +51,9 @@ class TodoListController extends Controller
      */
     public function show(TodoList $todoList)
     {
-        $todoLists = TodoList::query()->get();
+        $todoList->load([
+            'tasks'
+        ]);
 
         return view('TodoListShow', [
             'todoList' => $todoList

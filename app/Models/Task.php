@@ -5,23 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TodoList extends Model
+class Task extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'name',
-        'description',
-        'due_date',
-        'priority'
+        'done'
     ];
 
     protected $casts = [
-        'due_date' => 'datetime'
+        'done' => 'boolean',
     ];
 
-    public function tasks()
+    public function todoList()
     {
-        return $this->hasMany(Task::class);
+        return $this->belongsTo(TodoList::class);
     }
 }
