@@ -15,7 +15,11 @@ class TodoListController extends Controller
      */
     public function index()
     {
-        //
+        $todoLists = TodoList::query()->get();
+
+        return view('TodoListIndex', [
+            'todoLists' => $todoLists
+        ]);
     }
 
     /**
@@ -47,7 +51,11 @@ class TodoListController extends Controller
      */
     public function show(TodoList $todoList)
     {
-        //
+        $todoLists = TodoList::query()->get();
+
+        return view('TodoListShow', [
+            'todoList' => $todoList
+        ]);
     }
 
     /**
